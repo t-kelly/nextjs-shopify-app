@@ -2,21 +2,17 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+1. `git clone https://github.com/t-kelly/nextjs-shopify-app.git`
+2. [Expose your dev environment](https://shopify.dev/tutorials/build-a-shopify-app-with-node-and-react/embed-your-app-in-shopify#expose-your-dev-environment)
+3. [Get a Shopify API Key and API secret key](https://shopify.dev/tutorials/build-a-shopify-app-with-node-and-react/embed-your-app-in-shopify#get-a-shopify-api-key)
+  1. Instead of using `https://yourNgrokTunnel.ngrok.io/` for the App URL, use `https://yourNgrokTunnel.ngrok.io/embedded`
+  2. Instead of using `https://yourNgrokTunnel.ngrok.io/auth/callback` for the Redirection URLs, use `https://yourNgrokTunnel.ngrok.io/auth/shopify/callback`
+4. Rename `.env.example` to `.env.local` and fill in values
+5. Run `npm install` and then `npm run dev`
+5. [Install and test your app](https://shopify.dev/tutorials/build-a-shopify-app-with-node-and-react/embed-your-app-in-shopify#authenticate-and-test)
+         
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+You can start editing the page by modifying `pages/embedded/index.js`. The page auto-updates as you edit the file.
 
 ## Learn More
 
