@@ -1,5 +1,5 @@
 import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "react-apollo";
+import { ApolloProvider as Provider } from "react-apollo";
 import { fetch } from '@lib/app-bridge';
 
 export default function ApolloProvider({children}) {
@@ -10,5 +10,5 @@ export default function ApolloProvider({children}) {
     },
   });
 
-  return <ApolloProvider client={client}>{children}</ApolloProvider>
+  return <Provider client={client}>{children}</Provider>
 }

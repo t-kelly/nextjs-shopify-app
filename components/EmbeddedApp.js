@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { Provider as AppBridgeProvider } from "@shopify/app-bridge-react";
 import PolarisProvider from '@components/PolarisProvider';
 import SessionProvider from '@components/SessionProvider';
-import ApolloProvider from '@components/SessionProvider';
+import ApolloProvider from '@components/ApolloProvider';
 import RoutePropagator from '@components/RoutePropagator';
 
 export default function EmbeddedApp({children}) {
