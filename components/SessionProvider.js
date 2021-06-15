@@ -1,11 +1,10 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Router from "next/router"
 import { getSessionToken } from "@shopify/app-bridge-utils";
-
 import { useAppBridge } from "@shopify/app-bridge-react";
 
-export default function AuthProvider({children}) {
+export default function SessionProvider({children}) {
   const app = useAppBridge();
   
   useEffect(async () => {

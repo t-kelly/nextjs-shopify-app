@@ -1,28 +1,26 @@
 import { Heading, Page } from "@shopify/polaris";
-import EmbeddedApp from "@components/EmbeddedApp";
+import Link from 'next/link'
 
 export async function getServerSideProps({query}) {
-  const {host} = query;
-  if(!host) {
+  if(!query.host) {
     return {
       redirect: {
         destination: '/api/auth/shopify/login',
         permanent: false,
       },
     }
-  } else {
-    return {
-      props: {host}
-    }
+  }
+  
+  return {
+    props: {}
   }
 }
 
-export default function Index({host}) {
+export default function Index() {
   return (
-    <EmbeddedApp {...{host}}>
       <Page>
         <Heading>Shopify app with Node and React 🎉</Heading>
+        <Link href={`/embedded/page1`}><a>Go to another page</a></Link>
       </Page>
-    </EmbeddedApp>
   )
 };
