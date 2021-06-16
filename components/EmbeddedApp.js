@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import {useEffect, useState} from 'react';
 import { Provider as AppBridgeProvider } from "@shopify/app-bridge-react";
 import PolarisProvider from '@components/PolarisProvider';
 import SessionProvider from '@components/SessionProvider';
@@ -7,18 +7,33 @@ import RoutePropagator from '@components/RoutePropagator';
 
 export default function EmbeddedApp({children}) {
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-  const {query} = useRouter();
+  const [host, setHost] = useState();
 
-  return (
-    <PolarisProvider>
-      <AppBridgeProvider config={{ apiKey:API_KEY, host: query.host, forceRedirect: true }}>
-        <SessionProvider>
-          <RoutePropagator/>
-          <ApolloProvider>
-            {children}
-          </ApolloProvider>
-        </SessionProvider>
-      </AppBridgeProvider>
-    </PolarisProvider>
-  );
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    const host = url.searchParams.get('host');
+
+    // If host is not set, than the page is being loaded outside of App Bridge
+    // so we should proceed with starting OAuth
+    if (host) {
+      setHost(host)
+    } else {
+      window.location.pathname = `/api/auth/shopify/login`;
+    }
+  }, [])
+
+  return <>
+    {host && <>
+      <PolarisProvider>
+        <AppBridgeProvider config={{ apiKey:API_KEY, host, forceRedirect: true }}>
+          <SessionProvider>
+            <RoutePropagator/>
+            <ApolloProvider>
+              {children}
+            </ApolloProvider>
+          </SessionProvider>
+        </AppBridgeProvider>
+      </PolarisProvider>
+    </>}
+  </>
 }
