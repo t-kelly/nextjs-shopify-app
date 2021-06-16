@@ -8,3 +8,11 @@ export default async function handleWebhooks(req, res) {
     console.log(`Failed to process webhook: ${error}`);
   }
 }
+
+// We need to disable the body parser here because `Shopify.Webhooks.Registry.process()`
+// expects a raw body which is used for checking the validity (HMAC) of the Webhook
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
