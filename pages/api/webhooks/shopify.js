@@ -1,6 +1,11 @@
 import Shopify from '@lib/shopify';
 
 export default async function handleWebhooks(req, res) {
+  // Provide HOST_NAME here just in case it was not provided by env variable
+  // This might occur during the first deploy to Vercel when you don't yet know 
+  // what domain your app is being hosted on
+  Shopify.Context.update({HOST_NAME: req.headers.host});
+
   try {
     await Shopify.Webhooks.Registry.process(req, res);
     console.log(`Webhook processed, returned status code 200`);
