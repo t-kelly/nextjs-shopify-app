@@ -20,7 +20,7 @@ Finally, install your app on a development store by selecting **Test on developm
 2. [Expose your dev environment](https://shopify.dev/tutorials/build-a-shopify-app-with-node-and-react/embed-your-app-in-shopify#expose-your-dev-environment) with ngrok
 3. [Get another Shopify API Key and API secret key for local development](https://shopify.dev/tutorials/build-a-shopify-app-with-node-and-react/embed-your-app-in-shopify#get-a-shopify-api-key) inside the Partner Dashboard
    - Instead of using `https://yourNgrokTunnel.ngrok.io/` for the App URL, use `https://yourNgrokTunnel.ngrok.io/embedded`
-   - Instead of using `https://yourNgrokTunnel.ngrok.io/auth/callback` for the Redirection URLs, use `https://yourNgrokTunnel.ngrok.io/auth/shopify/callback`
+   - Instead of using `https://yourNgrokTunnel.ngrok.io/auth/callback` for the Redirection URLs, use `https://yourNgrokTunnel.ngrok.io/api/auth/shopify/callback`
 4. Rename `.env.example` to `.env.local` and fill in values
 5. Run `npm install` and then `npm run dev`
 5. [Install your app on a development store and start developing!](https://shopify.dev/tutorials/build-a-shopify-app-with-node-and-react/embed-your-app-in-shopify#authenticate-and-test) 
