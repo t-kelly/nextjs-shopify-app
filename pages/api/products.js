@@ -8,7 +8,7 @@ export default async (req, res) => {
 
   const session = await Shopify.Utils.loadCurrentSession(req, res);
   const client = new Shopify.Clients.Graphql(session.shop, session.accessToken);
-  // Use `client.get` to request the specified Shopify REST API endpoint, in this case `products`.
+  // Use `client.get` to request the specified Shopify GraphQL API endpoint, in this case `products`.
   const products = await client.query({
     data: `{
   products (first: 10) {
