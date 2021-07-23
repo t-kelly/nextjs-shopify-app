@@ -10,7 +10,7 @@ This examples uses [Upstash](https://upstash.com/) (Serverless Redis Database) a
 
 You'll need to [get a Shopify App API Key and API secret key](https://shopify.dev/tutorials/build-a-shopify-app-with-node-and-react/embed-your-app-in-shopify#get-a-shopify-api-key) inside the Partner Dashboard to complete the deploy. After deployed, select **App Setup** on your app's summary page in Partner Dashboard, and update the following values:
 1. App Url: `https://[your-vercel-deploy-url].vercel.app/embedded`
-2. Redirection URLs: `https://[your-vercel-deploy-url].ngrok.io/auth/shopify/callback`
+2. Redirection URLs: `https://[your-vercel-deploy-url].vercel.app/api/auth/shopify/callback`
 
 Finally, install your app on a development store by selecting **Test on development store** on your app's summary page in Partner Dashboard
 
