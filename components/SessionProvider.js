@@ -1,6 +1,5 @@
 
 import { useEffect } from 'react';
-import {useRouter} from "next/router"
 import { getSessionToken } from "@shopify/app-bridge-utils";
 import { useAppBridge } from "@shopify/app-bridge-react";
 
@@ -11,7 +10,7 @@ export default function SessionProvider({children}) {
     const session = await getSessionToken(app);
     
     if (!session) {
-      window.location.pathname = `/api/auth/shopify/login`;
+      window.location.pathname = `/auth`;
     }
   }, []);
   

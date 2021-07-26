@@ -6,7 +6,7 @@ import ApolloProvider from '@components/ApolloProvider';
 import RoutePropagator from '@components/RoutePropagator';
 
 export default function EmbeddedApp({children}) {
-  const API_KEY = process.env.NEXT_PUBLIC_SHOPIFY_APP_API_KEY;
+  const API_KEY = process.env.NEXT_PUBLIC_SHOPIFY_API_KEY;
   const [host, setHost] = useState();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function EmbeddedApp({children}) {
     if (host) {
       setHost(host)
     } else {
-      window.location.pathname = `/api/auth/shopify/login`;
+      window.location.pathname = `/auth`;
     }
   }, [])
 
