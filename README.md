@@ -20,7 +20,7 @@ Finally, install your app on a development store by selecting **Test on developm
 2. Create another Shopify App for Development inside the [Partner Dashboard](https://partners.shopify.com/current/stores?shpxid=a1fb8161-E1A9-475F-5DF6-E0BCC9D15DFF) and use the Shopify API Key and API secret key for local development.
 4. Rename `.env.example` to `.env.local` and fill in values
 5. Run `npm install` and then `npm run dev`
-6. [Expose your dev environment](https://ngrok.com/docs#getting-started-expose) with ngrok
+6. [Expose your dev environment](https://ngrok.com/docs#getting-started-expose) with ngrok (nextjs runs on port 3000 by default)
 7. Update your Dev Apps settings in the Partner Dashboard with the following URLs:
    - Instead of using `https://yourNgrokTunnel.ngrok.io/` for the App URL, use `https://yourNgrokTunnel.ngrok.io/embedded`
    - Instead of using `https://yourNgrokTunnel.ngrok.io/auth/callback` for the Redirection URLs, use `https://yourNgrokTunnel.ngrok.io/api/auth/shopify/callback`
