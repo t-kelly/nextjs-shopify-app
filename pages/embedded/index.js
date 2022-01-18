@@ -24,7 +24,7 @@ export default function Index() {
   useEffect(async () => {
     const response = await authenticatedFetch(app)('/api/products');
     const {body} = await response.json();
-    setProducts(body.products);
+    setProducts(body.data.products.edges);
   }, [])
 
   return (
